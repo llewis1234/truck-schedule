@@ -1,0 +1,280 @@
+{
+    "ATLANTA": {
+        "Monday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "4:30 PM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "4:30 PM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "4:30 PM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "CHICAGO": {
+        "Monday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "6:00 PM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "6:00 PM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "6:00 PM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "DALLAS": {
+        "Monday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "LA AVIATION": {
+        "Monday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Tuesday",
+            "Depart Time": "1:00 AM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Saturday",
+            "Depart Time": "1:00 AM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "5:00 PM",
+            "Depart Day": "Thursday",
+            "Depart Time": "1:00 AM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "LA WOODLEY": {
+        "Monday": {
+            "Load Start Time": "12:00 PM",
+            "Load Complete Time": "2:00 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "3:00 PM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "12:00 PM",
+            "Load Complete Time": "2:00 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "3:00 PM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "12:00 PM",
+            "Load Complete Time": "2:00 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "3:00 PM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "LAS VEGAS": {
+        "Monday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Tuesday",
+            "Depart Time": "10:00 AM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Saturday",
+            "Depart Time": "10:00 AM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Thursday",
+            "Depart Time": "10:00 AM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "MIAMI": {
+        "Monday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Tuesday",
+            "Depart Time": "10:00 AM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "3:00 PM",
+            "Load Complete Time": "4:00 PM",
+            "Depart Day": "Thursday",
+            "Depart Time": "10:00 AM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "NEW JERSEY": {
+        "Monday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+            "Load Start Time": "2:00 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "5:00 PM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        }
+    },
+    "ORLANDO": {
+        "Tuesday": {
+            "Load Start Time": "2:30 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Wednesday",
+            "Depart Time": "7:00 AM",
+            "Arrive Day": "Thursday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Thursday",
+            "Unload Time": "5:00 PM"
+        },
+        "Thursday": {
+            "Load Start Time": "2:30 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Friday",
+            "Depart Time": "7:00 AM",
+            "Arrive Day": "Saturday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Monday",
+            "Unload Time": "8:00 AM"
+        },
+        "Friday": {
+            "Load Start Time": "2:30 PM",
+            "Load Complete Time": "4:30 PM",
+            "Depart Day": "Monday",
+            "Depart Time": "7:00 AM",
+            "Arrive Day": "Tuesday",
+            "Arrive Time": "3:00 PM",
+            "Unload Day": "Tuesday",
+            "Unload Time": "5:00 PM"
+        }
+    }
+}

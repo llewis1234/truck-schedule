@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truck Schedule Lookup</title>
+  <script>
+    // Embedded JSON data
+    const truckScheduleData = {
+      "ATLANTA": {
+        "Monday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "4:30 PM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "4:30 PM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "4:30 PM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        }
+      },
+      "CHICAGO": {
+        "Monday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "6:00 PM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "6:00 PM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "6:00 PM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        }
+      },
+      "DALLAS": {
+        "Monday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        }
+      },
+      "LA AVIATION": {
+        "Monday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Tuesday",
+          "Depart Time": "1:00 AM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Thursday",
+          "Depart Time": "1:00 AM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        },
+        "Friday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "5:00 PM",
+          "Depart Day": "Saturday",
+          "Depart Time": "1:00 AM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        }
+      },
+      "LA WOODLEY": {
+        "Monday": {
+          "Load Start Time": "12:00 PM",
+          "Load Complete Time": "2:00 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "3:00 PM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "12:00 PM",
+          "Load Complete Time": "2:00 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "3:00 PM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        },
+        "Friday": {
+          "Load Start Time": "12:00 PM",
+          "Load Complete Time": "2:00 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "3:00 PM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+
+        }
+      },
+      "LAS VEGAS": {
+        "Monday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Tuesday",
+          "Depart Time": "10:00 AM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Thursday",
+          "Depart Time": "10:00 AM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        },
+        "Friday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Saturday",
+          "Depart Time": "10:00 AM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        }
+      },
+      "MIAMI": {
+        "Monday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Tuesday",
+          "Depart Time": "10:00 AM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "3:00 PM",
+          "Load Complete Time": "4:00 PM",
+          "Depart Day": "Thursday",
+          "Depart Time": "10:00 AM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        }
+      },
+      "NEW JERSEY": {
+        "Monday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        },
+        "Wednesday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Friday": {
+          "Load Start Time": "2:00 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "5:00 PM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        }
+      },
+      "ORLANDO": {
+        "Tuesday": {
+          "Load Start Time": "2:30 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Wednesday",
+          "Depart Time": "7:00 AM",
+          "Arrive Day": "Thursday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Thursday",
+          "Unload Time": "5:00 PM"
+        },
+        "Thursday": {
+          "Load Start Time": "2:30 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Friday",
+          "Depart Time": "7:00 AM",
+          "Arrive Day": "Saturday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Monday",
+          "Unload Time": "8:00 AM"
+        },
+        "Friday": {
+          "Load Start Time": "2:30 PM",
+          "Load Complete Time": "4:30 PM",
+          "Depart Day": "Monday",
+          "Depart Time": "7:00 AM",
+          "Arrive Day": "Tuesday",
+          "Arrive Time": "3:00 PM",
+          "Unload Day": "Tuesday",
+          "Unload Time": "5:00 PM"
+        }
+      }
+    };
+
+    // Helper function to convert 12-hour time to 24-hour time
+    function convertTo24Hour(time12h) {
+      if (!time12h) return "";
+      const [time, modifier] = time12h.split(" ");
+      let [hours, minutes] = time.split(":");
+      hours = parseInt(hours, 10);
+
+      if (modifier === "PM" && hours !== 12) {
+        hours += 12;
+      }
+      if (modifier === "AM" && hours === 12) {
+        hours = 0;
+      }
+
+      const hoursString = hours < 10 ? "0" + hours : hours.toString();
+      return hoursString + ":" + minutes;
+    }
+
+    // Populate branch dropdown
+    function populateBranches() {
+      const branchSelect = document.getElementById("branch");
+      branchSelect.innerHTML = "<option value=''>Select Branch</option>";
+      Object.keys(truckScheduleData).forEach(branch => {
+        const option = document.createElement("option");
+        option.value = branch;
+        option.textContent = branch;
+        branchSelect.appendChild(option);
+      });
+    }
+
+    // Populate load day dropdown based on the selected branch
+    function populateLoadDays() {
+      const branch = document.getElementById("branch").value;
+      const loadDaySelect = document.getElementById("loadDay");
+      loadDaySelect.innerHTML = "<option value=''>Select Load Day</option>";
+      if (branch && truckScheduleData[branch]) {
+        Object.keys(truckScheduleData[branch]).forEach(loadDay => {
+          const option = document.createElement("option");
+          option.value = loadDay;
+          option.textContent = loadDay;
+          loadDaySelect.appendChild(option);
+        });
+      }
+    }
+
+    // Display the schedule with the desired order:
+    // 1. Load Start Time
+    // 2. Load Complete Time
+    // 3. Depart Day (moved here)
+    // 4. Depart Time
+    // 5. Arrive Day and Arrive Time
+    // 6. Unload Day and Unload Time
+    function displaySchedule() {
+      const branch = document.getElementById("branch").value;
+      const loadDay = document.getElementById("loadDay").value;
+      const details = document.getElementById("details");
+      details.innerHTML = "";
+
+      if (branch && loadDay && truckScheduleData[branch][loadDay]) {
+        const data = truckScheduleData[branch][loadDay];
+        details.innerHTML = `
+          <p><strong>Load Start Time:</strong> ${convertTo24Hour(data["Load Start Time"])}</p>
+          <p><strong>Load Complete Time:</strong> ${convertTo24Hour(data["Load Complete Time"])}</p>
+          <p><strong>Depart Day:</strong> ${data["Depart Day"]}</p>
+          <p><strong>Depart Time:</strong> ${convertTo24Hour(data["Depart Time"])}</p>
+          <p><strong>Arrive Day:</strong> ${data["Arrive Day"]}</p>
+          <p><strong>Arrive Time:</strong> ${convertTo24Hour(data["Arrive Time"])}</p>
+          <p><strong>Unload Day:</strong> ${data["Unload Day"]}</p>
+          <p><strong>Unload Time:</strong> ${convertTo24Hour(data["Unload Time"])}</p>
+        `;
+      }
+    }
+
+    // Initialize the app when the page loads
+    function loadData() {
+      populateBranches();
+    }
+  </script>
+</head>
+<body onload="loadData()">
+  <h2>Truck Schedule Lookup</h2>
+  <label for="branch">Select Origin Branch:</label>
+  <select id="branch" onchange="populateLoadDays()"></select>
+  <br /><br />
+  <label for="loadDay">Select Load Day:</label>
+  <select id="loadDay" onchange="displaySchedule()"></select>
+  <br /><br />
+  <div id="details"></div>
+</body>
+</html>

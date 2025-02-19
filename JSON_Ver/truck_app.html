@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Schedule Lookup</title>
+    <script>
+        let truckScheduleData = {};
+
+        async function loadData() {
+            const response = await fetch('truck_schedule.json');
+            truckScheduleData = await response.json();
+            populateBranches();
+        }
+
+        function populateBranches() {
+            const branchSelect = document.getElementById("branch");
+            branchSelect.innerHTML = "<option value=''>Select Branch</option>";
+            Object.keys(truckScheduleData).forEach(branch => {
+                let option = document.createElement("option");
+                option.value = branch;
+                option.textContent = branch;
+                branchSelect.appendChild(option);
+            });
+        }
+
+        function populateLoadDays() {
+            const branch = document.getElementById("branch").value;
+            const loadDaySelect = document.getElementById("loadDay");
+            loadDaySelect.innerHTML = "<option value=''>Select Load Day</option>";
+            if (branch && truckScheduleData[branch]) {
+                Object.keys(truckScheduleData[branch]).forEach(loadDay => {
+                    let option = document.createElement("option");
+                    option.value = loadDay;
+                    option.textContent = loadDay;
+                    loadDaySelect.appendChild(option);
+                });
+            }
+        }
+
+        function displaySchedule() {
+            const branch = document.getElementById("branch").value;
+            const loadDay = document.getElementById("loadDay").value;
+            const details = document.getElementById("details");
+            details.innerHTML = "";
+
+            if (branch && loadDay && truckScheduleData[branch][loadDay]) {
+                const data = truckScheduleData[branch][loadDay];
+                details.innerHTML = `
+                    <p><strong>Load Start Time:</strong> ${data["Load Start Time"]}</p>
+                    <p><strong>Load Complete Time:</strong> ${data["Load Complete Time"]}</p>
+                    <p><strong>Depart Day:</strong> ${data["Depart Day"]}</p>
+                    <p><strong>Depart Time:</strong> ${data["Depart Time"]}</p>
+                    <p><strong>Arrive Day:</strong> ${data["Arrive Day"]}</p>
+                    <p><strong>Arrive Time:</strong> ${data["Arrive Time"]}</p>
+                    <p><strong>Unload Day:</strong> ${data["Unload Day"]}</p>
+                    <p><strong>Unload Time:</strong> ${data["Unload Time"]}</p>
+                `;
+            }
+        }
+    </script>
+</head>
+<body onload="loadData()">
+    <h2>Truck Schedule Lookup</h2>
+    <label for="branch">Select Origin Branch:</label>
+    <select id="branch" onchange="populateLoadDays()"></select>
+
+    <label for="loadDay">Select Load Day:</label>
+    <select id="loadDay" onchange="displaySchedule()"></select>
+
+    <div id="details"></div>
+</body>
+</html>
